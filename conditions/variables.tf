@@ -11,7 +11,7 @@ variable "instance_type" {
 variable "ec2_tags" {
   type = map(string)
   default = {
-    name    = "roboshop"
+    Name    = "roboshop"
     purpose = "ec2 instance creation"
 
   }
@@ -23,7 +23,7 @@ variable "sg_name" {
 
 variable "sg_tags" {
   default = {
-    name = "allow_all"
+    Name = "allow_all"
   }
 }
 
