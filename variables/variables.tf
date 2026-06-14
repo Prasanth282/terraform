@@ -1,14 +1,14 @@
 variable "ami_id" {
     default = "ami-0220d79f3f480ecf5"
-    tags = string
-    description = ami id 
+    type = string
+    description = "ami id of instance"
 }
 
 variable "instance_type" {
     default = "t.3 micro"
 }
 
-variable "instance_name" {
+variable "ec2_tags" {
     type = map( string )
     default = {
         name = "roboshop"
@@ -34,9 +34,12 @@ variable "to_port" {
     default = "0"
 }
 
-variable "cidr_bllocks" {
-    default = "["0.0.0.0/0"]"
+variable "cidr_blocks" {
+
+    default = ["0.0.0.0/0"]
 }
+
+
 
 
 
