@@ -1,32 +1,33 @@
 resource "aws_instance" "roboshop" {
-  ami           = "ami_id"
-  instance_type = "instance_type"
+  ami           = var.ami_id
+  instance_type = var.instance_type
+   vpc_security_group_ids = [ aws_security_group.allow_all.id ]
 
   tags = {
-    Name = "instance_name"
+    Name = var.instance_name
   }
 }
 
 resource "aws_security_group" "allow_all" {
-  name        = "sg_name"
+  name        = var.sg_name
   description = "Allow TLS inbound traffic and all outbound traffic"
 
   tags = {
-    Name = "sg_display-name"
+    Name = var.sg_tags
   }
 
   ingress {
-    from_port        = "from_port"
-    to_port          = "to_port"
+    from_port        = var.from_port
+    to_port          = var.to_port
     protocol         = "-1"
-    cidr_blocks      = "cidr_bllocks"
+    cidr_blocks      = var.cidr_blocks
     ipv6_cidr_blocks = ["::/0"]
   }
   egress {
-    from_port        = "from_port"
-    to_port          = "to_port"
+    from_port        = var.from_port
+    to_port          = var.to_port
     protocol         = "-1"
-    cidr_blocks      = "cidr_bllocks"
+    cidr_blocks      = var.cidr_blocks
     ipv6_cidr_blocks = ["::/0"]
   }
 
