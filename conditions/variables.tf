@@ -18,7 +18,7 @@ variable "ec2_tags" {
 }
 
 variable "sg_name" {
-  default = "allow-all"
+  default = "allow_all"
 }
 
 variable "sg_tags" {
